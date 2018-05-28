@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C845F3D120BC194E0078DEF9 /* Chat Group.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Group.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C845F3D120BC194E0078DEF9 /* Group Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C845F3D420BC194E0078DEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C845F3D620BC194E0078DEF9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C845F3D920BC194E0078DEF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		C845F3C820BC194E0078DEF9 = {
 			isa = PBXGroup;
 			children = (
-				C845F3D320BC194E0078DEF9 /* Chat Group */,
+				C845F3D320BC194E0078DEF9 /* Group Chat */,
 				C845F3D220BC194E0078DEF9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		C845F3D220BC194E0078DEF9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C845F3D120BC194E0078DEF9 /* Chat Group.app */,
+				C845F3D120BC194E0078DEF9 /* Group Chat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C845F3D320BC194E0078DEF9 /* Chat Group */ = {
+		C845F3D320BC194E0078DEF9 /* Group Chat */ = {
 			isa = PBXGroup;
 			children = (
 				C845F3E720BC1A0D0078DEF9 /* Controller */,
@@ -73,7 +73,7 @@
 				C845F3EA20BC1AA00078DEF9 /* View */,
 				C845F3E920BC1A670078DEF9 /* Supporting Files */,
 			);
-			path = "Chat Group";
+			path = "Group Chat";
 			sourceTree = "<group>";
 		};
 		C845F3E620BC19FA0078DEF9 /* Model */ = {
@@ -125,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C845F3D020BC194E0078DEF9 /* Chat Group */ = {
+		C845F3D020BC194E0078DEF9 /* Group Chat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C845F3E320BC194E0078DEF9 /* Build configuration list for PBXNativeTarget "Chat Group" */;
+			buildConfigurationList = C845F3E320BC194E0078DEF9 /* Build configuration list for PBXNativeTarget "Group Chat" */;
 			buildPhases = (
 				C845F3CD20BC194E0078DEF9 /* Sources */,
 				C845F3CE20BC194E0078DEF9 /* Frameworks */,
@@ -137,9 +137,9 @@
 			);
 			dependencies = (
 			);
-			name = "Chat Group";
+			name = "Group Chat";
 			productName = "Chat Group";
-			productReference = C845F3D120BC194E0078DEF9 /* Chat Group.app */;
+			productReference = C845F3D120BC194E0078DEF9 /* Group Chat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -157,7 +157,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C845F3CC20BC194E0078DEF9 /* Build configuration list for PBXProject "Chat Group" */;
+			buildConfigurationList = C845F3CC20BC194E0078DEF9 /* Build configuration list for PBXProject "Group Chat" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -170,7 +170,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C845F3D020BC194E0078DEF9 /* Chat Group */,
+				C845F3D020BC194E0078DEF9 /* Group Chat */,
 			);
 		};
 /* End PBXProject section */
@@ -346,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BRUZ42SH8K;
-				INFOPLIST_FILE = "$(SRCROOT)/Chat Group/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Group Chat/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BRUZ42SH8K;
-				INFOPLIST_FILE = "$(SRCROOT)/Chat Group/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Group Chat/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,7 +379,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C845F3CC20BC194E0078DEF9 /* Build configuration list for PBXProject "Chat Group" */ = {
+		C845F3CC20BC194E0078DEF9 /* Build configuration list for PBXProject "Group Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C845F3E120BC194E0078DEF9 /* Debug */,
@@ -388,7 +388,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C845F3E320BC194E0078DEF9 /* Build configuration list for PBXNativeTarget "Chat Group" */ = {
+		C845F3E320BC194E0078DEF9 /* Build configuration list for PBXNativeTarget "Group Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C845F3E420BC194E0078DEF9 /* Debug */,

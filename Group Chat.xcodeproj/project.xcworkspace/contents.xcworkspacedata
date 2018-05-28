@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Chat Group.xcodeproj">
+      location = "self:/Users/liroy/Desktop/Chat Group/Group Chat.xcodeproj">
    </FileRef>
 </Workspace>
