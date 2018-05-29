@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82E8D5C20BD4192009D56DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82E8D5B20BD4192009D56DC /* GoogleService-Info.plist */; };
 		C845F3D520BC194E0078DEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845F3D420BC194E0078DEF9 /* AppDelegate.swift */; };
 		C845F3D720BC194E0078DEF9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845F3D620BC194E0078DEF9 /* WelcomeViewController.swift */; };
 		C845F3DA20BC194E0078DEF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C845F3D820BC194E0078DEF9 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C82E8D5B20BD4192009D56DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C845F3D120BC194E0078DEF9 /* Group Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C845F3D420BC194E0078DEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C845F3D620BC194E0078DEF9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				C845F3E020BC194E0078DEF9 /* Info.plist */,
+				C82E8D5B20BD4192009D56DC /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				C845F3DF20BC194E0078DEF9 /* LaunchScreen.storyboard in Resources */,
 				C845F3DC20BC194E0078DEF9 /* Assets.xcassets in Resources */,
+				C82E8D5C20BD4192009D56DC /* GoogleService-Info.plist in Resources */,
 				C845F3F020BC1B8B0078DEF9 /* MessageCell.xib in Resources */,
 				C845F3DA20BC194E0078DEF9 /* Main.storyboard in Resources */,
 			);
