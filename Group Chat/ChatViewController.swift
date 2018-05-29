@@ -59,7 +59,7 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     //this method get called when the tableView search what to show for user.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*
+        
         //create new object of type CustomMessageCell and show it on the tableView
         //this new object is actually design object and not the standard of the table view
         let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
@@ -83,18 +83,18 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
         
         return cell //this return mean that "present this cell in the table view"
  
- */
+ /*
         let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
         let arr = ["first message", "second message", "third message"]
         cell.messageBody.text = arr[indexPath.row]
-        return cell
+        return cell*/
         
     }
     
     
     //it's rule the number of row in the table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3//messageArray.count
+        return messageArray.count
     }
     
     //    func numberOfSections(in tableView: UITableView) -> Int { // number of section
@@ -161,7 +161,7 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     @IBAction func sendPressed(_ sender: AnyObject) {
         
-        //messageTextfield.endEditing(true) // call the method textFieldDidEndEditing
+        messageTextfield.endEditing(true) // call the method textFieldDidEndEditing
         //Send the message to Firebase and save it in our database
         
         //this two line freeze the the textFild and sendButton for to send one time (and not two by accident)
