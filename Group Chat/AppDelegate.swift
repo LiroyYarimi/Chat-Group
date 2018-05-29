@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase //firebase library
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //this method is the first one to called when the app upload
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Initialise and Configure your Firebase here:
+        FirebaseApp.configure()
+        
+        //this two line delete all data from firebase (because it don't create child)
+        //        let myDatabase = Database.database().reference()//create new object of type Database
+        //        myDatabase.setValue("we've got data!") //send data to server (to Database).
+        
         return true
     }
 

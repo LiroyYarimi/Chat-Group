@@ -105,6 +105,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerPressed:" destination="dkP-WE-aQS" eventType="touchUpInside" id="6rM-H8-ohG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,6 +145,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="LEK-L8-bVr"/>
                     <connections>
+                        <outlet property="emailTextfield" destination="0gx-ZZ-Akh" id="vUa-jp-AMK"/>
+                        <outlet property="passwordTextfield" destination="4fR-QS-dBc" id="xbX-o6-wwl"/>
                         <segue destination="UYq-T0-XvP" kind="show" identifier="goToChat" id="Hhl-jO-T9r"/>
                     </connections>
                 </viewController>
@@ -175,6 +180,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logInPressed:" destination="h6u-us-KcQ" eventType="touchUpInside" id="Rn5-TR-SGz"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyr-od-O5p" userLabel="Password Textfield">
                                         <rect key="frame" x="16" y="126" width="343" height="30"/>
@@ -214,6 +222,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="BvP-h1-0AX"/>
                     <connections>
+                        <outlet property="emailTextfield" destination="Wie-oA-779" id="VJi-KF-vq6"/>
+                        <outlet property="passwordTextfield" destination="Oyr-od-O5p" id="FK7-Je-q8y"/>
                         <segue destination="UYq-T0-XvP" kind="show" identifier="goToChat" id="fZB-HP-vuJ"/>
                     </connections>
                 </viewController>
@@ -233,17 +243,17 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="45" id="Ndc-e3-76U">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="44" id="Ndc-e3-76U">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ndc-e3-76U" id="JuG-Vc-9oB" userLabel="MessageCell">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fX-Jk-l9J">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fX-Jk-l9J" userLabel="Compose View">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kb-Ua-fsQ" userLabel="Send Button">
@@ -256,9 +266,15 @@
                                         <state key="normal" title="Send ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="UYq-T0-XvP" eventType="touchUpInside" id="vO6-Ph-OGt"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfx-1w-CvX" userLabel="Message Textfield">
                                         <rect key="frame" x="8" y="10" width="305" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="WwN-dq-kec"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -266,14 +282,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="6Kb-Ua-fsQ" firstAttribute="leading" secondItem="tfx-1w-CvX" secondAttribute="trailing" constant="8" id="0hV-rd-2Oa"/>
+                                    <constraint firstItem="tfx-1w-CvX" firstAttribute="leading" secondItem="1fX-Jk-l9J" secondAttribute="leading" constant="8" id="1ve-UB-Z7R"/>
                                     <constraint firstAttribute="height" constant="50" id="8z9-Qn-4Ju"/>
                                     <constraint firstAttribute="trailing" secondItem="6Kb-Ua-fsQ" secondAttribute="trailing" constant="8" id="Dqs-tU-Rqf"/>
-                                    <constraint firstItem="tfx-1w-CvX" firstAttribute="top" secondItem="1fX-Jk-l9J" secondAttribute="top" constant="10" id="PH6-1F-Ujl"/>
-                                    <constraint firstItem="6Kb-Ua-fsQ" firstAttribute="leading" secondItem="tfx-1w-CvX" secondAttribute="trailing" constant="8" id="URE-b4-pRc"/>
+                                    <constraint firstItem="tfx-1w-CvX" firstAttribute="top" secondItem="1fX-Jk-l9J" secondAttribute="top" constant="10" id="Ky8-bZ-Mbe"/>
                                     <constraint firstItem="6Kb-Ua-fsQ" firstAttribute="top" secondItem="1fX-Jk-l9J" secondAttribute="top" constant="10" id="kzc-RT-Xcy"/>
-                                    <constraint firstAttribute="bottom" secondItem="tfx-1w-CvX" secondAttribute="bottom" constant="10" id="rUI-rg-LcS"/>
-                                    <constraint firstItem="tfx-1w-CvX" firstAttribute="leading" secondItem="1fX-Jk-l9J" secondAttribute="leading" constant="8" id="wL5-kT-azv"/>
-                                    <constraint firstItem="6Kb-Ua-fsQ" firstAttribute="leading" secondItem="tfx-1w-CvX" secondAttribute="trailing" constant="8" id="yh3-rL-F3h"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -291,8 +305,18 @@
                         <viewLayoutGuide key="safeArea" id="jMS-jz-8S0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Group Chat" id="5Ez-B5-7CN">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="JK0-bx-Fp4" userLabel="Log Out"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="JK0-bx-Fp4" userLabel="Log Out">
+                            <connections>
+                                <action selector="logOutPressed:" destination="UYq-T0-XvP" id="Boj-BW-aFl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="heightConstraint" destination="8z9-Qn-4Ju" id="yBe-d9-f0g"/>
+                        <outlet property="messageTableView" destination="J8T-GS-vyn" id="PNU-oh-szp"/>
+                        <outlet property="messageTextfield" destination="tfx-1w-CvX" id="raC-CP-cGS"/>
+                        <outlet property="sendButton" destination="6Kb-Ua-fsQ" id="JnZ-gD-sfv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRd-TQ-ZgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,6 +344,6 @@
         <image name="background1" width="1800" height="1192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CGz-wh-nT9"/>
+        <segue reference="fZB-HP-vuJ"/>
     </inferredMetricsTieBreakers>
 </document>

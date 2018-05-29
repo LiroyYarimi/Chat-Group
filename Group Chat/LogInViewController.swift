@@ -7,29 +7,54 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 class LogInViewController: UIViewController {
 
+    @IBOutlet var emailTextfield: UITextField!
+    @IBOutlet var passwordTextfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logInPressed(_ sender: AnyObject) {
+        
+        SVProgressHUD.show()
+        
+        //Log in the user
+        
+        if let email = emailTextfield.text{
+            if let password = passwordTextfield.text{
+                Auth.auth().signIn(withEmail: email, password: password) { // log in user
+                    (user, error) in
+                    if error == nil{
+                        
+                        print("log in successful")
+                        SVProgressHUD.dismiss()
+                        self.performSegue(withIdentifier: "goToChat", sender: self)
+                    }
+                    else{
+                        print("Error: log in crash")
+                        print(error!)
+                        SVProgressHUD.dismiss()
+                        
+                        //let's make a pop up message to user that say we have a problem
+                        let alert = UIAlertController(title: "Error", message: "One of the detail is wrong. Please try again", preferredStyle: .alert) // the message
+                        let tryAgain = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(tryAgain)
+                        self.present(alert, animated: true, completion: nil) // present the message
+                    }
+                }
+            }
+        }
+        
     }
-    */
 
 }
