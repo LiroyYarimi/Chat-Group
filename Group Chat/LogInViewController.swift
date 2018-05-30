@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import LocalAuthentication//use TouchID
 
 class LogInViewController: UIViewController {
 
@@ -26,10 +27,13 @@ class LogInViewController: UIViewController {
         if let email = defaults.string(forKey: "UserEmail"){ //get from our saving box
             userEmail = email
         }
-        if let password = defaults.string(forKey: "UserEmail"){ //get from our saving box
+        if let password = defaults.string(forKey: "UserPassword"){ //get from our saving box
             userPassword = password
         }
-        print("userEmail: \(userPassword) , userPassword: \(userEmail)")
+        if userEmail != "" && userPassword != ""{ //let's use touch ID to log in
+            EnterWithtouchID()
+        }
+        print("userEmail: \(userEmail) , userPassword: \(userPassword)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,13 +43,41 @@ class LogInViewController: UIViewController {
 
     @IBAction func logInPressed(_ sender: AnyObject) {
         
-        addTouchID()
-        
+        saveUserEmailAndPassword()
 
-        
     }
     
-    func addTouchID(){
+    func EnterWithtouchID(){
+        
+        print("EnterWithtouchID")
+        let auth = LAContext()
+        
+        //check if touch ID is possible on the device
+        if auth.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: nil){
+            
+            auth.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Put your finger on the home button") { (success, error) in
+                SVProgressHUD.show()
+                if error != nil{
+                    print("Invalid")
+                }
+                else{
+                    print("success")
+                    self.logIn(email: self.userEmail, password: self.userPassword)
+                }
+            }
+        }
+        else{
+            print("Your device not support touch ID")
+            
+            //let's make a pop up message to user that say we have a problem
+            let alert = UIAlertController(title: "Error", message: "Your device not support touch ID", preferredStyle: .alert) // the message
+            let tryAgain = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(tryAgain)
+            self.present(alert, animated: true, completion: nil) // present the message
+        }
+    }
+    
+    func saveUserEmailAndPassword(){
         
         let alert = UIAlertController(title: "Welcome", message: "Would you like to use Touch ID for next enters?", preferredStyle: .alert) // the message
         
@@ -60,12 +92,12 @@ class LogInViewController: UIViewController {
                     self.defaults.set(email, forKey: "UserEmail") //add itemArray to our saving box
                     self.defaults.set(password, forKey: "UserPassword")
                     
-                    self.logIn()
+                    self.chackTextFields()
                 }
             }
         }
         let no = UIAlertAction(title: "No Thank", style: .default) { (UIAelrtAction) in
-            self.logIn()
+            self.chackTextFields()
         }
 
         alert.addAction(yes)
@@ -74,34 +106,39 @@ class LogInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil) // present the message
     }
     
-    func logIn(){
+    func chackTextFields(){
+        if let email = emailTextfield.text{
+            if let password = passwordTextfield.text{
+                logIn(email: email, password: password)
+            }
+        }
+    }
+    
+    func logIn(email : String, password : String){
         
         SVProgressHUD.show()
         
         //Log in the user
         
-        if let email = emailTextfield.text{
-            if let password = passwordTextfield.text{
-                Auth.auth().signIn(withEmail: email, password: password) { // log in user
-                    (user, error) in
-                    if error == nil{
-                        
-                        print("log in successful")
-                        SVProgressHUD.dismiss()
-                        self.performSegue(withIdentifier: "goToChat", sender: self)
-                    }
-                    else{
-                        print("Error: log in crash")
-                        print(error!)
-                        SVProgressHUD.dismiss()
-                        
-                        //let's make a pop up message to user that say we have a problem
-                        let alert = UIAlertController(title: "Error", message: "One of the detail is wrong. Please try again", preferredStyle: .alert) // the message
-                        let tryAgain = UIAlertAction(title: "OK", style: .default)
-                        alert.addAction(tryAgain)
-                        self.present(alert, animated: true, completion: nil) // present the message
-                    }
-                }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { // log in user
+            (user, error) in
+            if error == nil{
+                
+                print("log in successful")
+                SVProgressHUD.dismiss()
+                self.performSegue(withIdentifier: "goToChat", sender: self)
+            }
+            else{
+                print("Error: log in crash")
+                print(error!)
+                SVProgressHUD.dismiss()
+                
+                //let's make a pop up message to user that say we have a problem
+                let alert = UIAlertController(title: "Error", message: "One of the detail is wrong. Please try again", preferredStyle: .alert) // the message
+                let tryAgain = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(tryAgain)
+                self.present(alert, animated: true, completion: nil) // present the message
             }
         }
     }
