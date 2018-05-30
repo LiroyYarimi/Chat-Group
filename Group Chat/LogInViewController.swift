@@ -12,11 +12,24 @@ import SVProgressHUD
 
 class LogInViewController: UIViewController {
 
+    var userEmail = ""
+    var userPassword = ""
+    let defaults = UserDefaults.standard //varibale that can save data even user terminate our app
+    
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if let email = defaults.string(forKey: "UserEmail"){ //get from our saving box
+            userEmail = email
+        }
+        if let password = defaults.string(forKey: "UserEmail"){ //get from our saving box
+            userPassword = password
+        }
+        print("userEmail: \(userPassword) , userPassword: \(userEmail)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +38,43 @@ class LogInViewController: UIViewController {
     
 
     @IBAction func logInPressed(_ sender: AnyObject) {
+        
+        addTouchID()
+        
+
+        
+    }
+    
+    func addTouchID(){
+        
+        let alert = UIAlertController(title: "Welcome", message: "Would you like to use Touch ID for next enters?", preferredStyle: .alert) // the message
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { (UIAelrtAction) in
+            
+            if let email = self.emailTextfield.text{
+                if let password = self.passwordTextfield.text{
+                    self.userEmail = email
+                    self.userPassword = password
+                    
+                    print("userEmail: \(email) , userPassword: \(password)")
+                    self.defaults.set(email, forKey: "UserEmail") //add itemArray to our saving box
+                    self.defaults.set(password, forKey: "UserPassword")
+                    
+                    self.logIn()
+                }
+            }
+        }
+        let no = UIAlertAction(title: "No Thank", style: .default) { (UIAelrtAction) in
+            self.logIn()
+        }
+
+        alert.addAction(yes)
+        alert.addAction(no)
+        
+        self.present(alert, animated: true, completion: nil) // present the message
+    }
+    
+    func logIn(){
         
         SVProgressHUD.show()
         
@@ -54,7 +104,6 @@ class LogInViewController: UIViewController {
                 }
             }
         }
-        
     }
 
 }
