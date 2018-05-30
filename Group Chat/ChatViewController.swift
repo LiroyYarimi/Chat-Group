@@ -66,8 +66,9 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
         
         //indexPath.row == the row in the tableView
         //change the cell property
-        cell.messageBody.text = messageArray [indexPath.row].messageBody
-        cell.senderUsername.text = messageArray [indexPath.row].sender
+        let reverseArray = messageArray.count - 1 - indexPath.row //print the table view with the newest message first
+        cell.messageBody.text = messageArray [reverseArray].messageBody
+        cell.senderUsername.text = messageArray [reverseArray].sender
         cell.avatarImageView.image = UIImage(named: "egg")
         
         if cell.senderUsername.text == Auth.auth().currentUser?.email as String?{ // if we send this message, then change the color of background
