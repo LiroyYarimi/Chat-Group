@@ -5,6 +5,6 @@ You can log in with Touch ID.
 
 
 ## Finished App
-![Finished App](https://github.com/LiroyYarimi/Group-Chat/blob/master/Group%20Chat%20-%20GIF.gif)
+![Finished App](https://github.com/LiroyYarimi/Group-Chat/blob/master/new%20GIF.gif)
 
 
