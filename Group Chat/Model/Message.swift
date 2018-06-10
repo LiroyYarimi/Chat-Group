@@ -11,11 +11,37 @@
 class Message {
     
     
-    var sender : String = ""
-    var messageBody : String = ""
+    private var sender : String?
+    private var messageBody : String?
     
-    func toString()-> String{
-        return "sender: \(sender) \t messageBody: \(messageBody)"
+    init() {
+        sender = ""
+        messageBody = ""
+    }
+    
+    init(otherSender : String, otherMessageBody : String) {
+        sender = otherSender
+        messageBody = otherMessageBody
+    }
+    
+    func getSender() -> String?{
+        return sender
+    }
+    func setSender(otherSender : String){
+        sender = otherSender
+    }
+    func getMessageBody() -> String?{
+        return messageBody
+    }
+    func setMessageBody(otherMessageBody : String){
+        messageBody = otherMessageBody
+    }
+    
+    func toString()-> String?{
+        if sender != nil && messageBody != nil{
+            return "sender: \(sender!) \t messageBody: \(messageBody!)"
+        }
+        return nil
     }
     
     

@@ -48,7 +48,6 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
 
         messageTableView.separatorStyle = .none//hide all the separate line between the message on the tableView
         
-        
     }
     
     ///////////////////////////////////////////
@@ -67,8 +66,8 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
         //indexPath.row == the row in the tableView
         //change the cell property
         let reverseArray = messageArray.count - 1 - indexPath.row //print the table view with the newest message first
-        cell.messageBody.text = messageArray [reverseArray].messageBody
-        cell.senderUsername.text = messageArray [reverseArray].sender
+        cell.messageBody.text = messageArray [reverseArray].getMessageBody()
+        cell.senderUsername.text = messageArray [reverseArray].getSender()
         cell.avatarImageView.image = UIImage(named: "egg")
         
         if cell.senderUsername.text == Auth.auth().currentUser?.email as String?{ // if we send this message, then change the color of background
@@ -202,9 +201,7 @@ class ChatViewController: UIViewController , UITableViewDelegate, UITableViewDat
             let text = snapshotValue["MessageBody"]!
             let sender = snapshotValue["Sender"]!
             
-            let message = Message()
-            message.messageBody = text
-            message.sender = sender
+            let message = Message(otherSender : sender, otherMessageBody : text)
             
             //print("message: \(message.toString())")
             self.messageArray.append(message) //add the new message to our array
